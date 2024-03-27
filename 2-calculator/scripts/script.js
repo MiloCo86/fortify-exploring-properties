@@ -28,7 +28,7 @@ for (let btn of btnNumbers){
 for (let btn of btnOperations){
     btn.addEventListener('click', ()=>{
         mainDisplay.value=null;
-        
+
         if(displayHistory ==''){
             displayHistory = displayData + btn.value;
             displayAcumulator.value = displayHistory;
@@ -37,6 +37,7 @@ for (let btn of btnOperations){
             displayData= '';
             oldOperation = btn.value;
             mainDisplay.value=null;
+            equalValidator = false;
             
         }else if(displayData=='' && !equalValidator){
             displayHistory = displayHistory.slice(0, -1) + btn.value;
@@ -57,8 +58,6 @@ for (let btn of btnOperations){
             if(oldOperation== '÷') total /= num;
 
             oldOperation = btn.value;
-
-
 
             displayHistory = displayHistory + displayData;
             displayAcumulator.value = displayHistory;
@@ -81,8 +80,6 @@ btnEqual.addEventListener('click', ()=>{
         if(oldOperation== '-') total -= num;
         if(oldOperation== '*') total *= num;
         if(oldOperation== '÷') total /= num;
-
-
 
         displayHistory = displayHistory + displayData;
         displayAcumulator.value = displayHistory;
